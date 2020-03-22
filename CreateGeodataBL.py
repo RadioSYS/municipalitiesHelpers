@@ -101,6 +101,13 @@ with open('./data/PLZO_OSNAMEPOS.geojson', encoding='utf-8') as bFile:
 
 print('Wrote out all geodata for BL')
 
+# write out json file for later processing in webapp:
+munBLasList = []
+for p in munBL:
+    munBLasList.append(munBL[p])
+with open('./municipalities.json', 'w', encoding='utf-8') as bOutFile:
+    json.dump(munBLasList, bOutFile)
+
 # write out sample csv file
 with open('SampleFile.csv', 'w', newline='', encoding='utf-8') as sampleFile:
     csvWriter = csv.writer(sampleFile, delimiter=';')
