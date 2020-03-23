@@ -3,6 +3,7 @@ import csv
 import sys
 import json
 from random import randrange
+import random
 
 # Script to generate a geoJSON with all municipalities of BL
 # Datenquellen:
@@ -113,4 +114,4 @@ with open('SampleFile.csv', 'w', newline='', encoding='utf-8') as sampleFile:
     csvWriter = csv.writer(sampleFile, delimiter=';')
     csvWriter.writerow(['BFS NR', 'NAME', 'Anzahl'])
     for p in munBL:
-        csvWriter.writerow([munBL[p]['BFS_NR'], munBL[p]['NAME'], randrange(0, 40)])
+        csvWriter.writerow([munBL[p]['BFS_NR'], munBL[p]['NAME'], int(random.lognormvariate(0, 1) * 100)])
