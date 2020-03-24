@@ -51,7 +51,7 @@ for m in sHoheitsgebiet:
 print('Extracting other municipalities:')
 # extract others by BFS number
 othersList = [2471, 2472, 2473, 2474, 2475, 2476, 2477, 2478, 2479, 2480, 2481, 2579, 2611, 2618, 2619, 2621, 2701,
-              2702, 2703, 4252, 4254, 4257, 4258, 4263]
+              2702, 2703, 4252, 4254, 4257, 4258, 4263, 2614, 2616, 2613]
 othersList.sort()
 print(othersList)
 for m in sHoheitsgebiet:
@@ -75,8 +75,8 @@ def write_areas(list_bfs, filePathOut):
 
 
 print('Writing borders')
-# write_areas(munBL, './boundaries_BL.geojson')
-# write_areas(others, './boundaries_Others.geojson')
+write_areas(munBL, './boundaries_BL.geojson')
+write_areas(others, './boundaries_Others.geojson')
 
 # we now have a list of ortschaften in BL and some others
 # now we have to find where to display the case counter

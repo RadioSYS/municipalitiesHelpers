@@ -1,25 +1,28 @@
 BFS NR;NAME;Anzahl
-2701;Basel;131
-4254;Möhlin;42
-2619;Kleinlützel;101
-2480;Seewen;12
-4258;Rheinfelden;103
-2579;Hägendorf;19
-4263;Zeiningen;102
-2611;Bärschwil;297
-2703;Riehen;112
-2621;Nunningen;255
-2477;Metzerlen-Mariastein;274
-2475;Hochwald;28
-2476;Hofstetten-Flüh;64
-2478;Nuglar-St. Pantaleon;31
-2472;Büren (SO);177
-2618;Himmelried;756
-2474;Gempen;41
-2473;Dornach;136
-2479;Rodersdorf;214
-4252;Kaiseraugst;18
-4257;Olsberg;19
-2481;Witterswil;41
-2702;Bettingen;198
-2471;Bättwil;558
+2701;Basel;193
+4254;Möhlin;267
+2619;Kleinlützel;59
+2480;Seewen;74
+4258;Rheinfelden;9
+2579;Hägendorf;128
+4263;Zeiningen;66
+2611;Bärschwil;219
+2703;Riehen;72
+2621;Nunningen;106
+2477;Metzerlen-Mariastein;16
+2475;Hochwald;50
+2614;Büsserach;101
+2476;Hofstetten-Flüh;113
+2613;Breitenbach;505
+2478;Nuglar-St. Pantaleon;19
+2472;Büren (SO);35
+2618;Himmelried;502
+2474;Gempen;215
+2473;Dornach;37
+2479;Rodersdorf;264
+4252;Kaiseraugst;52
+4257;Olsberg;141
+2481;Witterswil;120
+2702;Bettingen;464
+2471;Bättwil;142
+2616;Fehren;310
