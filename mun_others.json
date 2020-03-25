@@ -143,6 +143,32 @@
         ]
     },
     {
+        "BFS_NR": 2492,
+        "NAME": "Kienberg",
+        "OS_UUID": "{8AD06DD5-5860-49E9-8DE5-D969670BE141}",
+        "NAME_UUID": "{4AE0EF2C-3ABC-4FD3-9ADE-6F7F7E1DEDD7}",
+        "PLZ_OS_UUID": "{FF0A0BA5-F5B9-4817-ADAF-99F62918828E}",
+        "POS_UUID": "{013C03A4-D9FF-45B5-9880-524823A7493B}",
+        "PLZ": 4468,
+        "COUNT_COORDS": [
+            47.43886530614472,
+            7.967754879840179
+        ]
+    },
+    {
+        "BFS_NR": 2493,
+        "NAME": "Lostorf",
+        "OS_UUID": "{7A5B281E-61E5-424B-863F-DC4E0D426551}",
+        "NAME_UUID": "{782A1122-8298-4455-B57E-CB8367A3EFF1}",
+        "PLZ_OS_UUID": "{6DFDE550-34D8-4E15-BB90-576AA9F7826D}",
+        "POS_UUID": "{733EA8DD-A38C-42C6-9106-26CC251E3AA8}",
+        "PLZ": 4654,
+        "COUNT_COORDS": [
+            47.38306693355454,
+            7.951697267729022
+        ]
+    },
+    {
         "BFS_NR": 2579,
         "NAME": "H\u00e4gendorf",
         "OS_UUID": "{F7922481-E5C9-4520-B456-5384BAE995FC}",
@@ -299,6 +325,19 @@
         ]
     },
     {
+        "BFS_NR": 4181,
+        "NAME": "Wittnau",
+        "OS_UUID": "{B8B7C3B1-1037-44BB-BDB5-FA4BCFFFAF82}",
+        "NAME_UUID": "{BAB93261-CC73-482F-9C6A-DAB088DD099E}",
+        "PLZ_OS_UUID": "{4D14D6CF-A22A-4B4A-918F-DCCABBF6194D}",
+        "POS_UUID": "{4729644F-E328-4DB0-A54C-C7D73A5999A7}",
+        "PLZ": 5064,
+        "COUNT_COORDS": [
+            47.48083844775196,
+            7.974811632225491
+        ]
+    },
+    {
         "BFS_NR": 4252,
         "NAME": "Kaiseraugst",
         "OS_UUID": "{36AFFC1A-4A30-4BC5-AA7A-0F59A4D3428F}",
@@ -361,6 +400,19 @@
         "COUNT_COORDS": [
             47.5541474143091,
             7.792727038151037
+        ]
+    },
+    {
+        "BFS_NR": 4262,
+        "NAME": "Wegenstetten",
+        "OS_UUID": "{44C6DDEC-35E4-4CA5-9554-B9B2E4006DB5}",
+        "NAME_UUID": "{A78629B0-3729-48F3-9F97-4049805CB637}",
+        "PLZ_OS_UUID": "{FA8350C7-08EF-40EE-818E-05F1B1E1DB92}",
+        "POS_UUID": "{B1FD3342-9A3B-4B06-B426-260272AABD4B}",
+        "PLZ": 4317,
+        "COUNT_COORDS": [
+            47.4987016811976,
+            7.935321150906378
         ]
     },
     {

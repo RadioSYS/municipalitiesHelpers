@@ -1,30 +1,34 @@
 BFS NR;NAME;Anzahl
-2701;Basel;108
-4254;Möhlin;34
-2619;Kleinlützel;108
-2480;Seewen;142
-4258;Rheinfelden;117
-2579;Hägendorf;63
-4263;Zeiningen;29
-2611;Bärschwil;68
-4253;Magden;130
-2703;Riehen;56
-2621;Nunningen;47
-2477;Metzerlen-Mariastein;52
-2475;Hochwald;84
-2614;Büsserach;68
-2476;Hofstetten-Flüh;172
-2613;Breitenbach;740
-2478;Nuglar-St. Pantaleon;314
-2472;Büren (SO);20
-2618;Himmelried;22
-2474;Gempen;254
-2473;Dornach;99
-2479;Rodersdorf;166
-4252;Kaiseraugst;1842
-4257;Olsberg;63
-2617;Grindel;19
-2481;Witterswil;118
-2702;Bettingen;16
-2471;Bättwil;114
-2616;Fehren;46
+2701;Basel;23
+4254;Möhlin;106
+2619;Kleinlützel;84
+2480;Seewen;172
+4258;Rheinfelden;20
+2579;Hägendorf;217
+2493;Lostorf;108
+4263;Zeiningen;44
+4181;Wittnau;42
+2611;Bärschwil;35
+4253;Magden;156
+2703;Riehen;386
+2621;Nunningen;149
+2492;Kienberg;46
+2477;Metzerlen-Mariastein;111
+2475;Hochwald;83
+2614;Büsserach;65
+2476;Hofstetten-Flüh;159
+4262;Wegenstetten;67
+2613;Breitenbach;129
+2478;Nuglar-St. Pantaleon;38
+2472;Büren (SO);15
+2618;Himmelried;184
+2474;Gempen;238
+2473;Dornach;54
+2479;Rodersdorf;69
+4252;Kaiseraugst;45
+4257;Olsberg;314
+2617;Grindel;120
+2481;Witterswil;493
+2702;Bettingen;58
+2471;Bättwil;29
+2616;Fehren;585
