@@ -1,28 +1,30 @@
 BFS NR;NAME;Anzahl
-2701;Basel;193
-4254;Möhlin;267
-2619;Kleinlützel;59
-2480;Seewen;74
-4258;Rheinfelden;9
-2579;Hägendorf;128
-4263;Zeiningen;66
-2611;Bärschwil;219
-2703;Riehen;72
-2621;Nunningen;106
-2477;Metzerlen-Mariastein;16
-2475;Hochwald;50
-2614;Büsserach;101
-2476;Hofstetten-Flüh;113
-2613;Breitenbach;505
-2478;Nuglar-St. Pantaleon;19
-2472;Büren (SO);35
-2618;Himmelried;502
-2474;Gempen;215
-2473;Dornach;37
-2479;Rodersdorf;264
-4252;Kaiseraugst;52
-4257;Olsberg;141
-2481;Witterswil;120
-2702;Bettingen;464
-2471;Bättwil;142
-2616;Fehren;310
+2701;Basel;257
+4254;Möhlin;259
+2619;Kleinlützel;91
+2480;Seewen;48
+4258;Rheinfelden;148
+2579;Hägendorf;199
+4263;Zeiningen;190
+2611;Bärschwil;169
+4253;Magden;74
+2703;Riehen;135
+2621;Nunningen;65
+2477;Metzerlen-Mariastein;70
+2475;Hochwald;105
+2614;Büsserach;331
+2476;Hofstetten-Flüh;129
+2613;Breitenbach;18
+2478;Nuglar-St. Pantaleon;68
+2472;Büren (SO);33
+2618;Himmelried;63
+2474;Gempen;262
+2473;Dornach;207
+2479;Rodersdorf;443
+4252;Kaiseraugst;137
+4257;Olsberg;60
+2617;Grindel;99
+2481;Witterswil;77
+2702;Bettingen;75
+2471;Bättwil;67
+2616;Fehren;59
