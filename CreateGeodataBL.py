@@ -46,7 +46,7 @@ for m in sHoheitsgebiet:
     if m['KANTONSNUM'] == 13 and m['GEM_FLAECH'] != None:
         munBL[m['BFS_NUMMER']] = {'BFS_NR': m['BFS_NUMMER'], 'NAME': m['NAME'], 'OS_UUID': m['UUID'],
                                   'KANTONSNUM': m['KANTONSNUM']}
-        print('BFS: %s Name: %s Type: %s %s' % (m['BFS_NUMMER'], m['NAME'], m['OBJEKTART'], m['GEM_FLAECH']))
+        # print('BFS: %s Name: %s Type: %s %s' % (m['BFS_NUMMER'], m['NAME'], m['OBJEKTART'], m['GEM_FLAECH']))
 
 print('Extracting other municipalities:')
 # extract others by BFS number
@@ -58,7 +58,7 @@ for m in sHoheitsgebiet:
     # print(m['BFS_NUMMER'])
     if m['BFS_NUMMER'] in othersList and m['GEM_FLAECH'] is not None:
         others[m['BFS_NUMMER']] = {'BFS_NR': m['BFS_NUMMER'], 'NAME': m['NAME'], 'OS_UUID': m['UUID']}
-        print('BFS: %s Name: %s Type: %s %s' % (m['BFS_NUMMER'], m['NAME'], m['OBJEKTART'], m['GEM_FLAECH']))
+        # print('BFS: %s Name: %s Type: %s %s' % (m['BFS_NUMMER'], m['NAME'], m['OBJEKTART'], m['GEM_FLAECH']))
 
 
 def write_areas(list_bfs, filePathOut):
@@ -75,8 +75,8 @@ def write_areas(list_bfs, filePathOut):
 
 
 print('Writing borders')
-write_areas(munBL, './boundaries_BL.geojson')
-write_areas(others, './boundaries_Others.geojson')
+# write_areas(munBL, './boundaries_BL.geojson')
+# write_areas(others, './boundaries_Others.geojson')
 
 # we now have a list of ortschaften in BL and some others
 # now we have to find where to display the case counter
@@ -90,13 +90,19 @@ for m in munBL:
 for m in others:
     munNames[others[m]['NAME']] = others[m]
 
+
+def set_name_plz(mName, m):
+    munNames[mName]['NAME_UUID'] = m['UUID']
+    munNames[mName]['PLZ_OS_UUID'] = m['OS_UUID']
+
+
 # add UUID for position from geodata
 i = 0
 try:
     for m in osname:
         mName = m['KURZTEXT']
         if mName in munNames:
-            munNames[mName]['NAME_UUID'] = m['UUID']
+            set_name_plz(mName, m)
             i = i + 1
             continue
         # special treatment for all municipalities with cantonal suffix ' BL'
@@ -104,11 +110,11 @@ try:
             i = i + 1
             mName = mName.replace(' BL', ' (BL)')
             if mName in munNames:
-                munNames[mName]['NAME_UUID'] = m['UUID']
+                set_name_plz(mName, m)
             else:
                 mName = mName.replace(' (BL)', '')
                 if mName in munNames:
-                    munNames[mName]['NAME_UUID'] = m['UUID']
+                    set_name_plz(mName, m)
                 else:
                     print('Error writing mun BL: ' + mName)
             continue
@@ -116,23 +122,23 @@ try:
             i = i + 1
             mName = mName.replace(' SO', ' (SO)')
             if mName in munNames:
-                munNames[mName]['NAME_UUID'] = m['UUID']
+                set_name_plz(mName, m)
             else:
                 mName = mName.replace(' (SO)', '')
                 if mName in munNames:
-                    munNames[mName]['NAME_UUID'] = m['UUID']
+                    set_name_plz(mName, m)
                 # else:
                 # print('Warning writing mun SO: ' + mName)
             continue
         if 'Metzerlen' in mName:
-            munNames['Metzerlen-Mariastein']['NAME_UUID'] = m['UUID']
+            set_name_plz('Metzerlen-Mariastein', m)
         if 'Nuglar' in mName:
-            munNames['Nuglar-St. Pantaleon']['NAME_UUID'] = m['UUID']
+            set_name_plz('Nuglar-St. Pantaleon', m)
         if 'Hofstetten' in mName:
-            munNames['Hofstetten-Flüh']['NAME_UUID'] = m['UUID']
+            set_name_plz('Hofstetten-Flüh', m)
         if 'Wahlen b. Laufen' in mName:
             i = i + 1
-            munNames['Wahlen']['NAME_UUID'] = m['UUID']
+            set_name_plz('Wahlen', m)
 
 except UnicodeDecodeError:
     print('File ended unexpected')
@@ -149,12 +155,31 @@ try:
 except:
     print("Unexpected error:", sys.exc_info()[0])
 
+# add PLZ from pls dbf
+try:
+    for m in plz:
+        # OSNAM_UUID # UUID
+        # print(m)
+        for p in munNames.values():
+            if p['PLZ_OS_UUID'] == m['OS_UUID']:
+                p['PLZ'] = m['PLZ']
+
+except:
+    print("Unexpected error:", sys.exc_info()[0])
+
 # now every mun should have a name uuid:
 for m in munNames:
     if 'NAME_UUID' not in munNames[m].keys():
         print('Error, mun has no name_uuid: ' + munNames[m]['NAME'])
     if 'POS_UUID' not in munNames[m].keys():
         print('Error, mun has no pos_uuid: ' + munNames[m]['NAME'])
+
+
+def look_up_by_pos_uuid(munList, uuid):
+    for m in munList:
+        if munList[m]['POS_UUID'] == uuid:
+            return munList[m]
+    print('Did not find mun with pos_uuid: %s' % (uuid))
 
 
 def write_position(munList, filePathOut):
@@ -170,6 +195,11 @@ def write_position(munList, filePathOut):
     for b in border['features']:
         if b['properties']['UUID'] in hashMap:
             positions.append(b)
+            # save position to municipality
+            mun = look_up_by_pos_uuid(munList, b['properties']['UUID'])
+            coords = b['geometry']['coordinates']
+            coords.reverse()
+            mun['COUNT_COORDS'] = coords
 
     border['features'] = positions
     with open(filePathOut, 'w', encoding='utf-8') as bOutFile:
@@ -189,9 +219,10 @@ def write_json(dictMun, out_path):
     munBLasList = []
     for p in dictMun:
         munBLasList.append(dictMun[p])
+    munBLasList.sort(key=lambda x: x['BFS_NR'])
 
     with open(out_path, 'w', encoding='utf-8') as bOutFile:
-        json.dump(munBLasList, bOutFile)
+        json.dump(munBLasList, bOutFile, indent=4)
 
 
 write_json(munBL, 'mun_BL.json')
@@ -204,8 +235,8 @@ def write_random_csv(dictMun, out_path):
     with open(out_path, 'w', newline='', encoding='utf-8') as sampleFile:
         csvWriter = csv.writer(sampleFile, delimiter=';')
         csvWriter.writerow(['BFS NR', 'NAME', 'Anzahl'])
-        for p in dictMun:
-            csvWriter.writerow([dictMun[p]['BFS_NR'], dictMun[p]['NAME'], int(random.lognormvariate(0, 1) * 100)])
+        for p in dictMun.values():
+            csvWriter.writerow([p['BFS_NR'], p['NAME'], int(random.lognormvariate(0, 1) * 100)])
 
 
 write_random_csv(munBL, './casedata.csv')
